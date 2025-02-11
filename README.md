@@ -1,1 +1,0 @@
-# astiga-strapi
