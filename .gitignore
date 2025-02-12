@@ -96,8 +96,13 @@ logs
 results
 node_modules
 .node_history
+node_modules
+.env
+.env.*
+npm-debug.log
+.pnpm-debug.log
 
-############################
+###########################
 # Package managers
 ############################
 
