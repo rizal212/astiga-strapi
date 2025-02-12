@@ -33,7 +33,8 @@
       ]
     },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "targetField": "title"
     },
     "stock": {
       "type": "integer"

@@ -595,7 +595,7 @@ export interface ApiShopShop extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     price: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID;
+    slug: Schema.Attribute.UID<'title'>;
     stock: Schema.Attribute.Integer;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
