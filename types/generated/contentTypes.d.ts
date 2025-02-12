@@ -566,6 +566,37 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiLookbookLookbook extends Struct.CollectionTypeSchema {
+  collectionName: 'lookbooks';
+  info: {
+    displayName: 'Lookbook';
+    pluralName: 'lookbooks';
+    singularName: 'lookbook';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::lookbook.lookbook'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiShopShop extends Struct.CollectionTypeSchema {
   collectionName: 'shops';
   info: {
@@ -1119,6 +1150,7 @@ declare module '@strapi/strapi' {
       'api::category-shop.category-shop': ApiCategoryShopCategoryShop;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::lookbook.lookbook': ApiLookbookLookbook;
       'api::shop.shop': ApiShopShop;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
